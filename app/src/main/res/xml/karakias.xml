@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <karakia id="5" name="var" video="music_2">
+<words>this is some text
+this is another bit of text</words>
+        <origins>just something</origins>
+    </karakia>
+</resources>
