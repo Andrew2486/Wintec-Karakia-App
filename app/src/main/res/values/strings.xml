@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Wintec Karakia App</string>
+    <string name="switch_video">Audio Only</string>
+    <string name="button_origins">View Song Origins</string>
+    <string name="switch_translate">English Lyrics</string>
+    <string name="fragment_name_home">Home</string>
+    <string name="fragment_name_karakia">Karakia Karaoke</string>
+    <string name="button_close">Close</string>
 </resources>

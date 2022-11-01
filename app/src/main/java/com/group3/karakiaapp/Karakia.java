@@ -4,6 +4,9 @@ public class Karakia {
     public String name;
     public int id;
     public int video;
-    public String words;
+    public int audio;
+    public int image;
+    public String wordsEnglish;
+    public String wordsMaori;
     public String origins;
 }

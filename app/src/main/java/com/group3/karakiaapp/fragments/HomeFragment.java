@@ -2,12 +2,11 @@ package com.group3.karakiaapp.fragments;
 
 import com.group3.karakiaapp.R;
 
-import android.net.Uri;
+import android.net.*;
 import android.os.*;
-import android.util.Log;
+import android.util.*;
 import android.view.*;
-import android.widget.MediaController;
-import android.widget.VideoView;
+import android.widget.*;
 
 import androidx.annotation.*;
 import androidx.fragment.app.*;
@@ -22,13 +21,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        VideoView player = (VideoView)view.findViewById(R.id.player);
-        MediaController controller = new MediaController(this.getContext());
-        controller.setAnchorView(player);
-        player.setMediaController(controller);
-        player.setVideoURI(Uri.parse("android.resource://" + this.getContext().getPackageName() + "/" +
-                ResourceManager.Instance().karakias.get(5).video));
-        player.start();
-        Log.d("words","words: " + ResourceManager.Instance().karakias.get(5).words);
+        NavController nav = Navigation.findNavController(view);
+        ((Button)view.findViewById(R.id.tempButton1)).setOnClickListener((x) ->
+            nav.navigate(HomeFragmentDirections.actionHomeToKarakiaFragment(5))
+        );
+        ((Button)view.findViewById(R.id.tempButton2)).setOnClickListener((x) ->
+            nav.navigate(HomeFragmentDirections.actionHomeToKarakiaFragment(-1))
+        );
     }
 }

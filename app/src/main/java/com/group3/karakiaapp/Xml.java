@@ -23,6 +23,7 @@ public class Xml {
 
     public static Xml FromParser(XmlResourceParser parser)
     {
+        Log.d("debug","type: " + parser.getClass().getName());
         int event = -1;
         List<Xml> Path = new ArrayList<>();
         Path.add(new Xml());
@@ -38,8 +39,16 @@ public class Xml {
                         n.Attributes.put(parser.getAttributeName(i), parser.getAttributeValue(i));
                     current.Children.add(n);
                     Path.add(0,n);
-                } else if (event == XmlResourceParser.END_TAG)
-                    Path.remove(0);
+                } else if (event == XmlResourceParser.END_TAG) {
+                    int count = 0;
+                    for (int i = 0; i < Path.size(); i++)
+                        if (Path.get(i).Name.equals(parser.getName())) {
+                            count = i + 1;
+                            break;
+                        }
+                    for (int i = 0; i < count; i++)
+                        Path.remove(0);
+                }
                 else if (event == XmlResourceParser.TEXT)
                 {
                     Xml n = new Xml();

@@ -3,11 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgraph"
-    app:startDestination="@id/Home">
+    app:startDestination="@id/HomeFragment">
 
     <fragment
-        android:id="@+id/Home"
+        android:id="@+id/HomeFragment"
         android:name="com.group3.karakiaapp.fragments.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:label="@string/fragment_name_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_Home_to_karakiaFragment"
+            app:destination="@id/KarakiaFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/KarakiaFragment"
+        android:name="com.group3.karakiaapp.fragments.KarakiaFragment"
+        android:label="@string/fragment_name_karakia"
+        tools:layout="@layout/fragment_karakia">
+        <argument
+            android:name="karakiaId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

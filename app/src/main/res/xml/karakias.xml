@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <karakia id="5" name="var" video="music_2">
-<words>this is some text
-this is another bit of text</words>
-        <origins>just something</origins>
+    <karakia id="-1" name="No Song Selected" video="music_2" audio="" image="">
+        <words lang="english">This is just the default page.
+This section is where the song's words would be displayed</words>
+        <words lang="maori">Koinei anake te wharangi taunoa.
+Ko tenei wahanga ka whakaatuhia nga kupu o te waiata</words>
+        <origins>This is where you would go to see the songs origins</origins>
+    </karakia>
+    <karakia id="5" name="test" video="music_1" audio="" image="">
+        <words lang="english">this is the english words section</words>
+        <words lang="maori">this is the maori words section</words>
+        <origins>this is where the song's origins will be</origins>
     </karakia>
 </resources>
