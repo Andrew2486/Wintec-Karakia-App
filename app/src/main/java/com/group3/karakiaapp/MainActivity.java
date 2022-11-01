@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         NavHostFragment navHost = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_host);
         navController = navHost.getNavController();
 
-        AppBarConfiguration.Builder config = new AppBarConfiguration.Builder(R.id.HomeFragment);
+        AppBarConfiguration.Builder config = new AppBarConfiguration.Builder(R.id.HomeFragment,R.id.TOSFragment);
         //config.setOpenableLayout((DrawerLayout)findViewById(R.id.drawer));
         appBarConfig = config.build();
 
@@ -64,5 +64,9 @@ public class MainActivity extends AppCompatActivity {
             infocardContainer.setLayoutParams(params);
             infocardOpen = false;
         }
+    }
+
+    public static class Settings {
+        public static boolean agreedToToS = false;
     }
 }

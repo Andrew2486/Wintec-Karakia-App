@@ -12,9 +12,10 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_Home_to_karakiaFragment"
-            app:destination="@id/KarakiaFragment"
-            app:launchSingleTop="true"
-            app:popUpTo="@id/HomeFragment" />
+            app:destination="@id/KarakiaFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_TOSFragment"
+            app:destination="@id/TOSFragment" />
     </fragment>
     <fragment
         android:id="@+id/KarakiaFragment"
@@ -25,4 +26,9 @@
             android:name="karakiaId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/TOSFragment"
+        android:name="com.group3.karakiaapp.fragments.TOSFragment"
+        android:label="@string/fragment_name_tos"
+        tools:layout="@layout/fragment_tos" />
 </navigation>

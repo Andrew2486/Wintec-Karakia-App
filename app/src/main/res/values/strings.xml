@@ -5,5 +5,10 @@
     <string name="switch_translate">English Lyrics</string>
     <string name="fragment_name_home">Home</string>
     <string name="fragment_name_karakia">Karakia Karaoke</string>
+    <string name="fragment_name_tos">Terms Of Service</string>
     <string name="button_close">Close</string>
+    <string name="text_tos_header">Terms Of Service</string>
+    <string name="text_tos_content">By agreeing to these terms of service you confirm that you are not a bot, martian, lizard person, time traveling vampire or frog, or are operating on behalf of one of an individual that would match said criteria.</string>
+    <string name="button_agree">Agree</string>
+    <string name="button_decline">Decline</string>
 </resources>

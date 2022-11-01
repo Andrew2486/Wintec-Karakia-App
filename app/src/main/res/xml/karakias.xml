@@ -9,7 +9,27 @@ Ko tenei wahanga ka whakaatuhia nga kupu o te waiata</words>
     </karakia>
     <karakia id="5" name="test" video="music_1" audio="" image="">
         <words lang="english">this is the english words section</words>
-        <words lang="maori">this is the maori words section</words>
+        <words lang="maori">this is the maori words section
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        this is just a test</words>
         <origins>this is where the song's origins will be</origins>
     </karakia>
 </resources>

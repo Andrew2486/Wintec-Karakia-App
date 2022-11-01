@@ -9,6 +9,7 @@ import android.os.Build;
 import android.provider.MediaStore;
 import android.util.Log;
 
+import org.json.JSONObject;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderAdapter;
@@ -18,6 +19,7 @@ import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
 import java.util.*;
+import java.util.concurrent.Callable;
 import java.util.logging.Logger;
 
 import androidx.annotation.Nullable;
@@ -91,12 +93,85 @@ public class ResourceManager {
     }
 
     public void ReadSettings() {
-        try {
-            FileInputStream help = context.openFileInput("helpSettings");
-            short t = 'ñ';
-        } catch (Exception e) {
+        JSONObject values = ReadFile("help.settings");
+        if (values != null)
+            for (HelpVideo help: helpVideos.values())
+                TryGetValue(values,help.name,(Boolean x) -> help.autoplay = x);
+        values = ReadFile("general.settings");
+        if (values != null)
+            TryGetValue(values,"ToS",(Boolean x) -> MainActivity.Settings.agreedToToS = x);
+    }
 
+    public void WriteSettings() {
+        JSONObject values = new JSONObject();
+        for (HelpVideo help: helpVideos.values())
+            TryPutValue(values,help.name, help.autoplay);
+        WriteFile("help.settings",values);
+        values = new JSONObject();
+        TryPutValue(values,"ToS",MainActivity.Settings.agreedToToS);
+        WriteFile("general.settings",values);
+    }
+
+
+    static <T> boolean TryGetValue(JSONObject json, String name, Action<T> OnSuccess) {
+        if (json.has(name)) {
+            T result;
+            try {
+                result = (T) json.opt(name);
+            } catch (Exception e) {
+                Log.e("TryGetValue",name + " - " + e);
+                return false;
+            }
+            OnSuccess.invoke(result);
+            return true;
+        }
+        return false;
+    }
+    static boolean TryPutValue(JSONObject json, String name, Object value) {
+        try {
+            json.putOpt(name,value);
+            return true;
+        } catch (Exception e) {
+            Log.e("TryPutValue",name + " - " + e);
+            return false;
+        }
+    }
+
+    JSONObject ReadFile(String filename) {
+        FileInputStream fileStream = null;
+        try {
+            fileStream = context.openFileInput(filename);
+            List<Byte> bytes = new ArrayList<>();
+            int read = fileStream.read();
+            while (read != -1) {
+                bytes.add((byte)read);
+                read = fileStream.read();
+            }
+            fileStream.close();
+            byte[] bytes2 = new byte[bytes.size()];
+            for (int i = 0; i < bytes.size();i++)
+                bytes2[i] = bytes.get(i);
+            return new JSONObject(new String(bytes2));
+        } catch (Exception e) {
+            Log.e("ReadFile",filename + " - " + e);
+            if (fileStream != null)
+                try { fileStream.close(); } catch (Exception e2) {}
+            return null;
+        }
+    }
+    void WriteFile(String filename, JSONObject json) {
+        FileOutputStream fileStream = null;
+        try {
+            fileStream = context.openFileOutput(filename,Context.MODE_PRIVATE);
+            String contents = json.toString(4);
+            fileStream.write(contents.getBytes());
+            fileStream.close();
+        } catch (Exception e) {
+            Log.e("WriteFile",filename + " - " + e);
+            if (fileStream != null)
+                try { fileStream.close(); } catch (Exception e2) {}
         }
     }
 }
+
 

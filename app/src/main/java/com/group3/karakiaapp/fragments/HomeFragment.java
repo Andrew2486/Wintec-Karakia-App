@@ -28,5 +28,7 @@ public class HomeFragment extends Fragment {
         ((Button)view.findViewById(R.id.tempButton2)).setOnClickListener((x) ->
             nav.navigate(HomeFragmentDirections.actionHomeToKarakiaFragment(-1))
         );
+        if (!MainActivity.Settings.agreedToToS)
+            nav.navigate(HomeFragmentDirections.actionHomeFragmentToTOSFragment());
     }
 }
