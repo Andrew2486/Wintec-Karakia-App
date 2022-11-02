@@ -23,7 +23,6 @@ public class Xml {
 
     public static Xml FromParser(XmlResourceParser parser)
     {
-        Log.d("debug","type: " + parser.getClass().getName());
         int event = -1;
         List<Xml> Path = new ArrayList<>();
         Path.add(new Xml());

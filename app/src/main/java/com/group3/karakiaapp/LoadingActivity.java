@@ -20,26 +20,29 @@ public class LoadingActivity extends AppCompatActivity {
     Runnable update;
     View root;
     ProgressBar bar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
         root = findViewById(R.id.loadingRoot);
         bar = findViewById(R.id.loadingDisplay);
-        new ResourceManager(this);
+        if (ResourceManager.Instance() == null) {
+            ResourceManager.OnLoaded = () -> {
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
+            };
+            new ResourceManager(this);
+
+        }
         update = () -> {
             OnUpdate();
             root.postDelayed(update,1);
         };
         root.postDelayed(update,1);
     }
-    int updateCount = 0;
+    static int updateCount = 0;
     void OnUpdate() {
         updateCount++;
-        if (updateCount == 100) {
-            finish();
-            startActivity(new Intent(this, MainActivity.class));
-        }
-        //bar.setProgress(bar.getProgress() + 1);
     }
 }

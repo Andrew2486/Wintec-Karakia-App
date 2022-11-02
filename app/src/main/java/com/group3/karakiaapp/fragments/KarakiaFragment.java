@@ -5,20 +5,19 @@ import android.os.*;
 import android.util.*;
 import android.view.*;
 import android.widget.*;
+import static com.group3.karakiaapp.MainActivity.Utils.*;
 
-import com.group3.karakiaapp.Karakia;
-import com.group3.karakiaapp.MainActivity;
+import com.group3.karakiaapp.*;
 import com.group3.karakiaapp.R;
-import com.group3.karakiaapp.ResourceManager;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.annotation.*;
 import androidx.fragment.app.*;
 
-public class KarakiaFragment extends Fragment {
+public class KarakiaFragment extends FragmentBase {
     VideoView player;
     TextView title;
     TextView contents;
+    static boolean audioOnly;
     static boolean wordsInEnglish;
     Karakia song;
     public KarakiaFragment() {
@@ -33,7 +32,10 @@ public class KarakiaFragment extends Fragment {
         contents = (TextView)view.findViewById(R.id.text_karakiaWords);
 
         Bundle args = getArguments();
-        song = ResourceManager.Instance().karakias.get(args != null ? args.getInt("karakiaId") : -1);
+        if (args != null)
+            song = ResourceManager.Instance().karakias.get(args.getInt("karakiaId"));
+        if (song == null)
+            song = ResourceManager.Instance().karakias.get(0);
 
         MediaController controller = new MediaController(getContext());
         controller.setAnchorView(player);
@@ -42,6 +44,7 @@ public class KarakiaFragment extends Fragment {
             player.setVideoURI(Uri.parse("android.resource://" + getContext().getPackageName() + "/" +
                     song.video));
             player.start();
+
             if (title != null)
                 title.setText(song.name);
             if (contents != null) {
@@ -67,5 +70,19 @@ public class KarakiaFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putBoolean("player_playing",player.isPlaying());
+        outState.putInt("player_position",player.getCurrentPosition());
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        TryGetValue(savedInstanceState,"player_position",(Integer x) -> player.seekTo(x));
+        TryGetValue(savedInstanceState,"player_playing",(Boolean x) -> {
+            if (x)
+                player.start();
+            else
+                player.pause();
+        });
     }
 }
