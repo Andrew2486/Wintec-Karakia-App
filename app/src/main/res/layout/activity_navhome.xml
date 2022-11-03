@@ -101,6 +101,7 @@
                 android:id="@+id/torial_container"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:visibility="gone"
                 app:cardCornerRadius="40dp"
                 app:contentPadding="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
