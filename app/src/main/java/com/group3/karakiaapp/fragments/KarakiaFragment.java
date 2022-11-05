@@ -41,15 +41,22 @@ public class KarakiaFragment extends FragmentBase {
         controller.setAnchorView(player);
         player.setMediaController(controller);
         if (song != null) {
-            player.setVideoURI(Uri.parse("android.resource://" + getContext().getPackageName() + "/" +
-                    song.video));
+            UpdateVideo();
             player.start();
+            Switch audio = view.findViewById(R.id.switch_video);
+            if (audio != null) {
+                audio.setChecked(audioOnly);
+                audio.setOnCheckedChangeListener((x, y) -> {
+                    audioOnly = y;
+                    UpdateVideo();
+                });
+            }
 
             if (title != null)
                 title.setText(song.name);
             if (contents != null) {
                 UpdateWords();
-                Switch translate = (Switch)view.findViewById(R.id.button_karakiaTranslate);
+                Switch translate = view.findViewById(R.id.button_karakiaTranslate);
                 if (translate != null) {
                     translate.setChecked(wordsInEnglish);
                     translate.setOnCheckedChangeListener((x, y) -> {
@@ -65,6 +72,14 @@ public class KarakiaFragment extends FragmentBase {
 
     public void UpdateWords() {
         contents.setText(wordsInEnglish ? song.wordsEnglish : song.wordsMaori);
+    }
+    public void UpdateVideo() {
+        int pos = player.getCurrentPosition();
+        player.setVideoURI(Uri.parse("android.resource://" + getContext().getPackageName() + "/" +
+                (audioOnly ? song.audio : song.video)));
+        try {
+            player.seekTo(pos);
+        } catch (Exception e) {}
     }
 
     @Override
