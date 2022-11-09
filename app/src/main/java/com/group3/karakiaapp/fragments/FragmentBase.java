@@ -20,4 +20,10 @@ public class FragmentBase extends Fragment {
         super.onCreate(savedInstanceState);
         last = this;
     }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        last = this;
+    }
 }

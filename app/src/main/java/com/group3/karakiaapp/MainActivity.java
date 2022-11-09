@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         NavHostFragment navHost = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_host);
         navController = navHost.getNavController();
 
-        AppBarConfiguration.Builder config = new AppBarConfiguration.Builder(R.id.HomeFragment,R.id.TOSFragment);
+        AppBarConfiguration.Builder config = new AppBarConfiguration.Builder(R.id.HomeFragment);
         config.setOpenableLayout((DrawerLayout)findViewById(R.id.drawer));
         appBarConfig = config.build();
 
