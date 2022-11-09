@@ -38,12 +38,11 @@ public class HomeFragment extends FragmentBase {
         for (Karakia item: songs)
             if (item.id != 0)
                 AddItem(item);
-        if (!MainActivity.Settings.agreedToToS) {
+        if (!MainActivity.Settings.agreedToToS)
             nav.navigate(HomeFragmentDirections.actionHomeFragmentToTOSFragment());
-        } else {
+        else
             MainActivity.instance.TryOpenTorial(ResourceManager.Instance().helpVideos.get("test"));
-        }
-        view.findViewById(R.id.textView2).setOnClickListener((x) -> nav.navigate(HomeFragmentDirections.actionHomeFragmentToSettingsFragment()));
+
     }
 
     public CardView AddItem(Karakia song) {
