@@ -2,6 +2,7 @@ package com.group3.karakiaapp.fragments;
 
 import com.group3.karakiaapp.R;
 
+import android.content.res.Resources;
 import android.os.*;
 import android.util.Log;
 import android.view.*;
@@ -24,6 +25,7 @@ public class HomeFragment extends FragmentBase {
     View self;
     public HomeFragment() {
         super(R.layout.fragment_home);
+        icon = ResourceManager.Instance().resources.getDrawable(R.drawable.ic_logos_wintec, null);
     }
 
     @Override

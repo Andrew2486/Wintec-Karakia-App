@@ -10,6 +10,7 @@
     <string name="fragment_name_settings">Settings</string>
     <string name="fragment_name_search">Karakia Search</string>
     <string name="fragment_name_about">About Us</string>
+    <string name="fragment_name_help">Help Videos</string>
     <string name="button_close">Close</string>
     <string name="text_tos_header">Terms Of Service</string>
     <string name="text_tos_content">By agreeing to these terms of service you confirm that you are not a bot, martian, lizard person, time traveling vampire or frog, or are operating on behalf of one of an individual that would match said criteria.</string>
