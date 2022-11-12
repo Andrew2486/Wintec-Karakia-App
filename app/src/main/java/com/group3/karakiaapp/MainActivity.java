@@ -1,6 +1,7 @@
 package com.group3.karakiaapp;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.*;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.*;
 
 import com.google.android.material.navigation.NavigationView;
 import com.group3.karakiaapp.fragments.FragmentBase;
+import com.group3.karakiaapp.fragments.HomeFragment;
 import com.group3.karakiaapp.fragments.TOSFragment;
 
 import static com.group3.karakiaapp.MainActivity.Utils.*;
@@ -18,11 +20,9 @@ import java.util.function.Predicate;
 
 import androidx.annotation.*;
 import androidx.appcompat.app.*;
-import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.*;
 import androidx.drawerlayout.widget.*;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.*;
 import androidx.navigation.fragment.*;
 import androidx.navigation.ui.*;
@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     TextView torialText;
     VideoView torialVideo;
     Switch torialSwitch;
+    Drawable defaultIcon;
+    Drawable homeIcon;
+    ImageView toolBarIcon;
     static HelpVideo openTorial;
     public Toolbar toolbar;
 
@@ -45,11 +48,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navhome);
+        FragmentBase.OnChange = this::OnChangeFragment;
         instance = this;
-
+        toolBarIcon = findViewById(R.id.toolbar_icon);
         infocardContainer = findViewById(R.id.infocard_container);
         infocard = findViewById(R.id.infocard_text);
-        ((Button)findViewById(R.id.infocard_close)).setOnClickListener((x) -> CloseInfoCard());
+        findViewById(R.id.infocard_close).setOnClickListener((x) -> CloseInfoCard());
 
         torialContainer = findViewById(R.id.torial_container);
         torialText = findViewById(R.id.torial_text);
@@ -85,13 +89,24 @@ public class MainActivity extends AppCompatActivity {
                 CloseInfoCard();
         });
 
-        findViewById(R.id.imageView).setOnClickListener((x) -> {
+        findViewById(R.id.toolbar_icon).setOnClickListener((x) -> {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://wintec.ac.nz")));
         });
+
+        OnChangeFragment(FragmentBase.last);
     }
     @Override
     public boolean onSupportNavigateUp() {
         return (!(FragmentBase.last instanceof TOSFragment) && NavigationUI.navigateUp(navController,appBarConfig)) || super.onSupportNavigateUp();
+    }
+
+    public void OnChangeFragment(FragmentBase newFragment) {
+        if (newFragment.icon != null) {
+            if (defaultIcon == null)
+                defaultIcon = toolBarIcon.getDrawable();
+            toolBarIcon.setImageDrawable(newFragment.icon);
+        } else if (defaultIcon != null)
+            toolBarIcon.setImageDrawable(defaultIcon);
     }
 
     @Override

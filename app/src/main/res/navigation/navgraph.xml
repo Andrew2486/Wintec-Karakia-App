@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_HomeFragment_to_AboutFragment"
             app:destination="@id/AboutFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_helpFragment"
+            app:destination="@id/HelpFragment" />
     </fragment>
     <fragment
         android:id="@+id/KarakiaFragment"
@@ -63,4 +66,9 @@
         android:name="com.group3.karakiaapp.fragments.AboutFragment"
         android:label="@string/fragment_name_about"
         tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/HelpFragment"
+        android:name="com.group3.karakiaapp.fragments.HelpFragment"
+        android:label="@string/fragment_name_help"
+        tools:layout="@layout/fragment_help" />
 </navigation>

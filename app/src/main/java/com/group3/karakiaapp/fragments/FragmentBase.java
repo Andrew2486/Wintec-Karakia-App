@@ -1,6 +1,9 @@
 package com.group3.karakiaapp.fragments;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+
+import com.group3.karakiaapp.*;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
@@ -13,17 +16,23 @@ public class FragmentBase extends Fragment {
     public FragmentBase() {
         super();
     }
+    public static Action<FragmentBase> OnChange;
+    public Drawable icon;
 
     public static FragmentBase last;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (OnChange != null)
+            OnChange.invoke(this);
         last = this;
     }
 
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
+        if (OnChange != null)
+            OnChange.invoke(this);
         last = this;
     }
 }

@@ -15,4 +15,7 @@
     <item
         android:id="@id/AboutFragment"
         android:title="@string/fragment_name_about" />
+    <item
+        android:id="@id/HelpFragment"
+        android:title="@string/fragment_name_help" />
 </menu>
