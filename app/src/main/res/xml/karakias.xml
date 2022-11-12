@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <karakia id="0" name="No Song Selected" video="music_2" audio="" image="test_image">
+    <karakia id="0" name="No Song Selected" video="music_2" audio="music_1" image="test_image">
         <!--- This is the default object that will be loaded if the selected karakia doesn't exist.
             Hopefully the users will never see this object !-->
         <words lang="english">This is just the default page.
@@ -9,7 +9,7 @@ This section is where the song's words would be displayed</words>
 Ko tenei wahanga ka whakaatuhia nga kupu o te waiata</words>
         <origins>This is where you would go to see the songs origins</origins>
     </karakia>
-    <karakia id="1" name="Karakia Timatanga (First Opening)" video="opening_karakia_timatanga" audio="karakia_opening_1" image="test_image">
+    <karakia id="1" name="Karakia Timatanga (First Opening)" video="opening_karakia_timatanga" audio="karakia_opening_1" image="opening1">
         <words lang="english">Draw forward our learners
 Draw forward our staff
 Draw forward the many people from the
@@ -28,7 +28,7 @@ Taiki e!
         </words>
         <origins>This Karakia is used as an opening prayer for a hui (meeting).</origins>
     </karakia>
-    <karakia id="2" name="Karakia Timatanga (Second Opening)" video="opening_2_karakia_timatanga" audio="karakia_opening_2" image="test_image">
+    <karakia id="2" name="Karakia Timatanga (Second Opening)" video="opening_2_karakia_timatanga" audio="karakia_opening_2" image="opening2">
         <words lang="english">The wind swings to the west
 then turns into a southerly.
 making it prickly cold inland,
@@ -45,7 +45,7 @@ he tio, he huka, he hauhunga.
 Haumi e! Hui e! Taiki e!</words>
         <origins>This Karakia is a more traditionally used Karakia. and is used as an opening for a hui (meeting).</origins>
     </karakia>
-    <karakia id="3" name="Karakia ki te kai (Blessing for food)" video="karakia_ki_te_kai_blessing_for_food" audio="karakia_blessing_for_food" image="test_image">
+    <karakia id="3" name="Karakia ki te kai (Blessing for food)" video="karakia_ki_te_kai_blessing_for_food" audio="karakia_blessing_for_food" image="food">
         <words lang="english">Lord God
 Bless this food
 For the goodness of our bodies
@@ -68,7 +68,7 @@ Amine
 After the 19th century and Christianity was introduced to New Zealand,
 this Karakia was created to acknowledge the Christian god and Jesus Christ.</origins>
     </karakia>
-    <karakia id="4" name="Karakia Whakamutunga (First Closing)" video="closing_karakia_whakamutunga" audio="karakia_closing" image="test_image">
+    <karakia id="4" name="Karakia Whakamutunga (First Closing)" video="closing_karakia_whakamutunga" audio="karakia_closing" image="closing1">
         <words lang="english">May the grace of the Lord Jesus Christ
 And the love of God and the fellowship
 of the Holy Spirit Be with you all
@@ -87,7 +87,7 @@ Ki te Wairua Tapu
 After the 19th century and Christianity was introduced to New Zealand,
 this Karakia was created to acknowledge the Christian god and Jesus Christ.</origins>
     </karakia>
-    <karakia id="5" name="Karakia Whakamutunga (Second Closing)" video="closing_2_karakia_whakamutunga" audio="karakia_closing_2" image="test_image">
+    <karakia id="5" name="Karakia Whakamutunga (Second Closing)" video="closing_2_karakia_whakamutunga" audio="karakia_closing_2" image="closing2">
         <words lang="english">Honour, glory and
 peace to the land.
 May good thoughts come

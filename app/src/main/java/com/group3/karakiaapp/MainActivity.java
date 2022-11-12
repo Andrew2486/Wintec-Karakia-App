@@ -1,5 +1,6 @@
 package com.group3.karakiaapp;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.*;
 import android.util.Log;
@@ -82,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
         viewOverlay.setOnClickListener((x) -> {
             if (infocardOpen)
                 CloseInfoCard();
+        });
+
+        findViewById(R.id.imageView).setOnClickListener((x) -> {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://wintec.ac.nz")));
         });
     }
     @Override

@@ -23,13 +23,15 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:logoDescription="Wintec">
 
-                        <ImageView
-                            android:id="@+id/imageView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            app:srcCompat="?attr/actionModeCutDrawable"
-                            tools:layout_gravity="right"
-                            tools:layout_marginRight="10dp"/>
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    app:srcCompat="@drawable/ic_icons_wintec"
+                    app:tint="?attr/editTextColor"
+                    tools:layout_editor_absoluteX="311dp"
+                    tools:layout_editor_absoluteY="3dp" />
                 </androidx.appcompat.widget.Toolbar>
 
 
@@ -48,6 +50,7 @@
 
                 <!--- TODO: Setup another object that'll sit just behind the infocard that will act as a block to the controls behind the infocard
                 ><!-->
+
             <ImageView
                 android:id="@+id/overlay"
                 android:layout_width="0dp"
@@ -55,8 +58,10 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@mipmap/back_tint" />
 
             <LinearLayout
