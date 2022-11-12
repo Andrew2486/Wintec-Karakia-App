@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <karakia id="0" name="No Song Selected" video="music_2" audio="" image="test_image">
+    <karakia id="0" name="No Song Selected" video="music_2" audio="music_1" image="test_image">
         <!--- This is the default object that will be loaded if the selected karakia doesn't exist.
             Hopefully the users will never see this object !-->
         <words lang="english">This is just the default page.

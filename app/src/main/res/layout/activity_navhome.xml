@@ -27,8 +27,11 @@
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/black_logo"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    app:srcCompat="@drawable/ic_icons_wintec"
+                    app:tint="?attr/editTextColor"
+                    tools:layout_editor_absoluteX="311dp"
+                    tools:layout_editor_absoluteY="3dp" />
                 </androidx.appcompat.widget.Toolbar>
 
 
