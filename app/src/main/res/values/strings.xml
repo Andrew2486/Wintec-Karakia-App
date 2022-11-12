@@ -19,12 +19,13 @@
     <string name="switch_searchTitles">Search Titles</string>
     <string name="switch_searchWords">Search Words</string>
     <string name="hint_search">Type to Search</string>
-    <string name="about_team_1">Rachata Triratjarasporn - Team Leader</string>
-    <string name="about_team_2">Aidan Reid - Core Programmer</string>
-    <string name="about_team_3">Hamish Malins - Graphic and UI Designer</string>
-    <string name="about_team_4">Josephy O Dwyer - Documentation Specialist</string>
-    <string name="about_team_5">Andrew Law - Documentation Specialist</string>
-    <string name="about_team_6">Aadil Imran - Presenter</string>
-    <string name="about_team_7">Jack Taylor - Presenter</string>
+    <string name="about_team_1">Rachata Triratjarasporn \nTeam Leader</string>
+    <string name="about_team_2">Aidan Reid \nCore Programmer</string>
+    <string name="about_team_3">Hamish Malins \nPresenter</string>
+    <string name="about_team_4">Josephy O Dwyer \nDocumentation Specialist</string>
+    <string name="about_team_5">Andrew Law \nDocumentation &amp; Animation</string>
+    <string name="about_team_6">Aadil Imran \nUI Implementation</string>
+    <string name="about_team_7">Jack Taylor \nPresenter &amp; Organiser</string>
     <string name="about_header">About Us</string>
+    <string name="karakia_heading">Karakia (blessings)</string>
 </resources>
