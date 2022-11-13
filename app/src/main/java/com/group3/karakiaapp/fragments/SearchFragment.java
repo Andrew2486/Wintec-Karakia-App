@@ -1,9 +1,13 @@
 package com.group3.karakiaapp.fragments;
 
+import android.content.Context;
+import android.hardware.input.InputManager;
+import android.inputmethodservice.Keyboard;
 import android.net.*;
 import android.os.*;
 import android.util.*;
 import android.view.*;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import static com.group3.karakiaapp.MainActivity.Utils.*;
 
@@ -46,6 +50,7 @@ public class SearchFragment extends FragmentBase {
         searchBar = view.findViewById(R.id.input_search);
         View searchButton = view.findViewById(R.id.button_search);
         searchButton.setOnClickListener((x) -> {
+            HideKeyboard();
             String term = searchBar.getText().toString();
             if (term == null || term.length() == 0 || IsWhitespace(term))
             {
@@ -73,6 +78,7 @@ public class SearchFragment extends FragmentBase {
                 searchButton.post(() -> searchButton.setEnabled(true));
             });
         });
+        MainActivity.instance.TryOpenTorial(ResourceManager.Instance().helpVideos.get("search"));
     }
     class SearchResult {
         float Value;
@@ -81,6 +87,10 @@ public class SearchFragment extends FragmentBase {
             Karakia = karakia;
             Value = value;
         }
+    }
+
+    static void HideKeyboard() {
+        ((InputMethodManager)MainActivity.instance.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(MainActivity.instance.getCurrentFocus().getWindowToken(),0);
     }
 
     @Override
@@ -112,9 +122,10 @@ public class SearchFragment extends FragmentBase {
         card.setId(View.generateViewId());
         container.addView(card);
         containerFlow.addView(card);
-        card.setOnClickListener((x) ->
-            nav.navigate(SearchFragmentDirections.actionSearchFragmentToKarakiaFragment(song.id))
-        );
+        card.setOnClickListener((x) -> {
+            HideKeyboard();
+            nav.navigate(SearchFragmentDirections.actionSearchFragmentToKarakiaFragment(song.id));
+        });
         return card;
     }
 

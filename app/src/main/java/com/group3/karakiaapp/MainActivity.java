@@ -39,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
     Switch torialSwitch;
     Drawable defaultIcon;
     ImageView toolBarIcon;
+    NavHostFragment navHost;
     static HelpVideo openTorial;
+    MediaController torialControl;
     public Toolbar toolbar;
     public DrawerLayout drawer;
 
@@ -58,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         torialText = findViewById(R.id.torial_text);
         torialSwitch = findViewById(R.id.torial_switch);
         torialVideo = findViewById(R.id.torial_video);
+        torialControl = new MediaController(this);
+        torialVideo.setMediaController(torialControl);
         ((Button)findViewById(R.id.torial_close)).setOnClickListener((x) -> CloseTorial());
         torialSwitch.setOnCheckedChangeListener((x,y) -> {
             if (openTorial == null)
@@ -68,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        NavHostFragment navHost = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_host);
+        navHost = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_host);
         navController = navHost.getNavController();
 
         AppBarConfiguration.Builder config = new AppBarConfiguration.Builder(R.id.HomeFragment);
@@ -92,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.toolbar_icon).setOnClickListener((x) -> {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://wintec.ac.nz")));
         });
-
+        torialContainer.setOnClickListener((x) -> {});
         OnChangeFragment(FragmentBase.last);
     }
     @Override
