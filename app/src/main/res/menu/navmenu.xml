@@ -7,8 +7,7 @@
         android:title="@string/fragment_name_home" />
     <item
         android:id="@id/SearchFragment"
-        android:title="@string/fragment_name_search"
-        app:actionViewClass="android.widget.SearchView" />
+        android:title="@string/fragment_name_search" />
     <item
         android:id="@id/SettingsFragment"
         android:title="@string/fragment_name_settings" />

@@ -13,7 +13,25 @@
     <string name="fragment_name_help">Help Videos</string>
     <string name="button_close">Close</string>
     <string name="text_tos_header">Terms Of Service</string>
-    <string name="text_tos_content">By agreeing to these terms of service you confirm that you are not a bot, martian, lizard person, time traveling vampire or frog, or are operating on behalf of one of an individual that would match said criteria.</string>
+    <string name="text_tos_content">The information provided in this mobile application is
+for general purposes only. All information in this application
+is provided in good faith, however, we make no representation
+or warranty of any kind, expressed or implied, regarding
+the accuracy, validity, reliability, availability or completeness
+of any information on this application.\n\n
+Under no circumstance shall we have any liability to you for any
+for any loss or damage of any kind incurred as a result of use of
+this mobile application. Your use of our mobile application
+and your reliance on any information provided in out application
+is solely at your own risk.</string>
+    <string name="disclaimer_header">Disclaimer</string>
+    <string name="disclaimer_content">The Karakia app is a prototype version for Wintec staff
+        and students. It is intended that staff and students shall
+        use this to get an understanding of giving Karakia and
+        information related to Karakia. Karakia for Wintec - Te Pukenga
+    may chanege accordingly making older versions redundant.
+    Wintec - Te Pukenga takes no responsibility of outdated
+    information displayed on the app.</string>
     <string name="button_agree">Agree</string>
     <string name="button_decline">Decline</string>
     <string name="button_search">Search</string>
