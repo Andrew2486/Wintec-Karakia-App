@@ -10,7 +10,6 @@ import android.widget.*;
 
 import com.google.android.material.navigation.NavigationView;
 import com.group3.karakiaapp.fragments.FragmentBase;
-import com.group3.karakiaapp.fragments.HomeFragment;
 import com.group3.karakiaapp.fragments.TOSFragment;
 
 import static com.group3.karakiaapp.MainActivity.Utils.*;
@@ -39,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
     VideoView torialVideo;
     Switch torialSwitch;
     Drawable defaultIcon;
-    Drawable homeIcon;
     ImageView toolBarIcon;
     static HelpVideo openTorial;
     public Toolbar toolbar;
+    public DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
         navController = navHost.getNavController();
 
         AppBarConfiguration.Builder config = new AppBarConfiguration.Builder(R.id.HomeFragment);
-        config.setOpenableLayout((DrawerLayout)findViewById(R.id.drawer));
+        drawer = findViewById(R.id.drawer);
+        config.setOpenableLayout(drawer);
         appBarConfig = config.build();
 
         toolbar = findViewById(R.id.toolbar);

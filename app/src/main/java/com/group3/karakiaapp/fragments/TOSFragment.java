@@ -2,24 +2,32 @@ package com.group3.karakiaapp.fragments;
 
 import com.group3.karakiaapp.R;
 
-import android.net.*;
 import android.os.*;
-import android.util.*;
 import android.view.*;
 import android.widget.*;
 
 import androidx.annotation.*;
-import androidx.constraintlayout.widget.*;
-import androidx.fragment.app.*;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.*;
 import com.group3.karakiaapp.*;
 
-import java.io.PrintWriter;
-
 public class TOSFragment extends FragmentBase {
     public TOSFragment() { super(R.layout.fragment_tos); }
-    ConstraintLayout.LayoutParams toolbarBefore;
     NavController nav;
+    DrawerLayout.DrawerListener listener = new DrawerLayout.DrawerListener() {
+        @Override
+        public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+            MainActivity.instance.drawer.close();
+        }
+        @Override
+        public void onDrawerOpened(@NonNull View drawerView) {
+            MainActivity.instance.drawer.close();
+        }
+        @Override
+        public void onDrawerClosed(@NonNull View drawerView) {}
+        @Override
+        public void onDrawerStateChanged(int newState) {}
+    };
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -38,16 +46,15 @@ public class TOSFragment extends FragmentBase {
             getActivity().finish();
             System.exit(0);
         });
-        toolbarBefore = (ConstraintLayout.LayoutParams)MainActivity.instance.toolbar.getLayoutParams();
-        ConstraintLayout.LayoutParams newParams = new ConstraintLayout.LayoutParams(toolbarBefore);
-        newParams.height = 1;
-        MainActivity.instance.toolbar.setLayoutParams(newParams);
+        MainActivity.instance.toolbar.setVisibility(View.GONE);
+        MainActivity.instance.drawer.addDrawerListener(listener);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        MainActivity.instance.toolbar.setLayoutParams(toolbarBefore);
+        MainActivity.instance.toolbar.setVisibility(View.VISIBLE);
+        MainActivity.instance.drawer.removeDrawerListener(listener);
     }
 
 

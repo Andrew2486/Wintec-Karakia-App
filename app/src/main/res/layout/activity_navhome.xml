@@ -12,16 +12,16 @@
 <!--- TODO: Add UI for help video popup  !-->
 
             <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/colorPrimary"
-                    android:minHeight="?attr/actionBarSize"
-                    android:theme="?attr/actionBarTheme"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:logoDescription="Wintec">
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:logoDescription="Wintec">
 
                 <ImageView
                     android:id="@+id/toolbar_icon"
@@ -34,7 +34,7 @@
                     app:tint="?attr/editTextColor"
                     tools:layout_editor_absoluteX="50dp"
                     tools:layout_editor_absoluteY="4dp" />
-                </androidx.appcompat.widget.Toolbar>
+            </androidx.appcompat.widget.Toolbar>
 
 
             <androidx.fragment.app.FragmentContainerView
