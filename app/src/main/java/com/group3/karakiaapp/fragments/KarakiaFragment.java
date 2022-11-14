@@ -42,7 +42,6 @@ public class KarakiaFragment extends FragmentBase {
         player.setMediaController(controller);
         if (song != null) {
             UpdateVideo();
-            player.start();
             Switch audio = view.findViewById(R.id.switch_video);
             if (audio != null) {
                 audio.setChecked(audioOnly);
@@ -68,6 +67,7 @@ public class KarakiaFragment extends FragmentBase {
             Button origins = view.findViewById(R.id.button_karakiaOrigins);
             origins.setOnClickListener((x) -> MainActivity.instance.OpenInfoCard(song.origins));
         }
+        MainActivity.instance.TryOpenTorial(ResourceManager.Instance().helpVideos.get("karakia"));
     }
 
     public void UpdateWords() {

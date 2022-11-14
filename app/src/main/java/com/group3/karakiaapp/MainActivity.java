@@ -27,6 +27,7 @@ import androidx.navigation.fragment.*;
 import androidx.navigation.ui.*;
 
 public class MainActivity extends AppCompatActivity {
+    Button info_link;
     public static MainActivity instance;
     NavController navController;
     AppBarConfiguration appBarConfig;
@@ -39,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
     Switch torialSwitch;
     Drawable defaultIcon;
     ImageView toolBarIcon;
+    NavHostFragment navHost;
     static HelpVideo openTorial;
+    MediaController torialControl;
     public Toolbar toolbar;
     public DrawerLayout drawer;
 
@@ -58,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         torialText = findViewById(R.id.torial_text);
         torialSwitch = findViewById(R.id.torial_switch);
         torialVideo = findViewById(R.id.torial_video);
+        torialControl = new MediaController(this);
+        torialVideo.setMediaController(torialControl);
         ((Button)findViewById(R.id.torial_close)).setOnClickListener((x) -> CloseTorial());
         torialSwitch.setOnCheckedChangeListener((x,y) -> {
             if (openTorial == null)
@@ -68,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        NavHostFragment navHost = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_host);
+        navHost = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_host);
         navController = navHost.getNavController();
 
         AppBarConfiguration.Builder config = new AppBarConfiguration.Builder(R.id.HomeFragment);
@@ -92,9 +97,23 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.toolbar_icon).setOnClickListener((x) -> {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://wintec.ac.nz")));
         });
-
+        torialContainer.setOnClickListener((x) -> {});
         OnChangeFragment(FragmentBase.last);
+
+        info_link = findViewById(R.id.info_link);
+        info_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goLink("https://www.takai.nz/find-resources/articles/karakia/");
+            }
+        });
     }
+
+    private void goLink(String s) {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         return (!(FragmentBase.last instanceof TOSFragment) && NavigationUI.navigateUp(navController,appBarConfig)) || super.onSupportNavigateUp();

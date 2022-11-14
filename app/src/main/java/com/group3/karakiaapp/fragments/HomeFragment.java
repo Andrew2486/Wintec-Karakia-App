@@ -43,8 +43,7 @@ public class HomeFragment extends FragmentBase {
         if (!MainActivity.Settings.agreedToToS)
             nav.navigate(HomeFragmentDirections.actionHomeFragmentToTOSFragment());
         else
-            MainActivity.instance.TryOpenTorial(ResourceManager.Instance().helpVideos.get("test"));
-
+            MainActivity.instance.TryOpenTorial(ResourceManager.Instance().helpVideos.get("home"));
     }
 
     public CardView AddItem(Karakia song) {
